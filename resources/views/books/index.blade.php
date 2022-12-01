@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Knygos</div>
+                    <div class="card-header">📘 Knygos</div>
 
                     <div class="card-body">
                         <a href="{{route('books.create')}}" class="btn btn-dark mb-3">➕ Pridėti</a>                        <table class="table">
