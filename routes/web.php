@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,13 +21,23 @@ Route::get('/', function () {
 });
 
 Route::resources([
-    'categories'=> CategoryController::class,
     'books'=> BookController::class
 ]);
 
-Route::get('/',[CategoryController::class, 'index'])->name('home');
+Route::middleware(['auth','administrator'])->group(function () {
 
-Route::get('category/{id}/books',[BookController::class, 'categoryBooks'])->name('categoryBooks');
+    Route::resources([
+        'categories'=> CategoryController::class
+    ]);
+
+    Route::get('/',[CategoryController::class, 'index'])->name('home');
+
+    Route::get('category/{id}/books',[BookController::class, 'categoryBooks'])->name('categoryBooks');
+
+});
+
+
+
 
 Auth::routes();
 

@@ -25,18 +25,15 @@
                                 <tr>
                                     <td>{{ $book->img }}</td>
                                     <td>{{ $book->name }}</td>
-                                    <td>{{ $book->category_id }}</td>
+                                    <td>{{ $book->category->name }}</td>
                                     <td>{{ $book->summary }}</td>
                                     <td>{{ $book->isbn }}</td>
                                     <td>{{ $book->pages }}</td>
                                     <td>
-                                        <a href="{{ route('categoryBooks',$category->id) }}" class="btn btn-info">Knygos</a>
+                                        <a href="{{route('books.edit', $book->id)}}" class="btn btn-dark">Redaguoti</a>
                                     </td>
                                     <td>
-                                        <a href="{{route('categories.edit', $category->id)}}" class="btn btn-dark">Redaguoti</a>
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('categories.destroy', $category->id) }}" method="post">
+                                        <form action="{{ route('books.destroy', $book->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger">Ištrinti</button>
