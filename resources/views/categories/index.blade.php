@@ -8,7 +8,8 @@
                     <div class="card-header">🗝 Kategorijos</div>
 
                     <div class="card-body">
-                        <a href="{{route('categories.create')}}" class="btn btn-dark mb-3">➕ Pridėti</a>                        <table class="table">
+                        <a href="{{route('categories.create')}}" class="btn btn-dark mb-3">➕ Pridėti</a>
+                        <table class="table">
                             <thead>
                             <tr>
                                 <th>Kategorijos pavadinimas</th>
